@@ -1,25 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Setup Complete - Temporary Deployment</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Command Center</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- AHA Stack Integrations via CDN -->
+    <script defer src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body>
-  <main class="wrap">
-    <p class="label">GitHub Starter Tutorial</p>
-    <h1>Congratulations. You successfully completed setup.</h1>
-    <p>
-      This is a temporary file used to demonstrate the GitHub Pages deployment process.
-    </p>
-    <p>
-      In AI-assisted development, this is your smoke test: prove your repo, local workflow,
-      and deployment path are working before you start building the real project.
-    </p>
-    <p>
-      Next step: replace this page with your Personal Dashboard or Project #5 files.
-    </p>
-  </main>
+<!-- Initialize Alpine.js Dashboard Component -->
+<body x-data="dashboard()">
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>Command Center</h2>
+            <p>Project 2 Deep Dive</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#overview" :class="{ 'active': activeSection === 'overview' }">Project Overview</a></li>
+            <li><a href="#readings" :class="{ 'active': activeSection === 'readings' }">Reading Library</a></li>
+            <li><a href="#plan" :class="{ 'active': activeSection === 'plan' }">Weekly Plan</a></li>
+            <li><a href="#prompts" :class="{ 'active': activeSection === 'prompts' }">Prompt Log</a></li>
+            <li><a href="#experiments" :class="{ 'active': activeSection === 'experiments' }">Experiment Log</a></li>
+            <li><a href="#links" :class="{ 'active': activeSection === 'links' }">Links</a></li>
+        </ul>
+    </nav>
+
+    <main class="content" @scroll.window="updateActiveSection">
+        <!-- Project Overview -->
+        <section id="overview" class="section prominent-section">
+            <header class="section-header">
+                <h1>Maintaining&nbsp;Creative&nbsp;Control<br>in&nbsp;Shifting&nbsp;Landscapes</h1>
+                <p class="subtitle">Research Dashboard & Documentation</p>
+            </header>
+
+            <div class="grid-2">
+                <div class="card card-primary">
+                    <h3>Research Question</h3>
+                    <p>How does the intentional use of design constraints and manual vectorization preserve human authorship when using AI-generated imagery as creative reference material?</p>
+                </div>
+                <div class="card">
+                    <h3>Deep Dive Focus</h3>
+                    <p>Maintaining creative control, human authorship, and intentional design process while using AI as a reference tool in vector landscape creation.</p>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <h3>Core Themes</h3>
+                <div class="tags">
+                    <span class="tag">human authorship</span>
+                    <span class="tag">intentionality</span>
+                    <span class="tag">creative control</span>
+                    <span class="tag">AI collaboration</span>
+                    <span class="tag">vector landscapes</span>
+                    <span class="tag">design constraints</span>
+                    <span class="tag">reflective design research</span>
+                </div>
+            </div>
+
+            <div class="card highlighted mt-4">
+                <div class="card-header highlight-header">
+                    <h3>Project Evolution</h3>
+                </div>
+                <div class="card-body">
+                    <div class="evolution-grid">
+                        <div class="evolution-item">
+                            <h4>Initial Direction</h4>
+                            <p>At the beginning of this project, the focus was on exploring how designers can co-create with AI when producing vector landscapes.</p>
+                        </div>
+                        <div class="evolution-item">
+                            <h4>Research Shift</h4>
+                            <p>As research and experimentation progressed, the focus shifted away from using AI as a direct image generator and toward understanding how designers can maintain authorship and intentionality when AI is used only as reference material.</p>
+                        </div>
+                        <div class="evolution-item">
+                            <h4>Current Focus</h4>
+                            <p>The project now explores how design constraints and manual vectorization allow designers to preserve creative control while still benefiting from AI-generated imagery as inspiration.</p>
+                        </div>
+                    </div>
+                    <div class="evolution-item insight">
+                        <h4>Insight</h4>
+                        <p>AI appears to be most valuable when it acts as a reference generator rather than a design author. By introducing intentional constraints and manually translating imagery into vector forms, the designer maintains authorship while still benefiting from AI-assisted exploration.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reading Library -->
+        <section id="readings" class="section">
+            <div class="section-title-group">
+                <h2>Reading Library</h2>
+            </div>
+            <div class="items-container">
+                <template x-for="item in appData.readings" :key="item.id">
+                    <div class="collapsible-card" x-data="{ open: false }">
+                        <div class="collapsible-header" @click="open = !open">
+                            <div class="title-area">
+                                <h3 x-text="item.title"></h3>
+                                <div class="meta" x-text="`${item.author} | ${item.type}`"></div>
+                            </div>
+                            <div class="expand-icon" :class="{'open-icon': open}">▼</div>
+                        </div>
+                        <div class="collapsible-body" :class="{'open': open}">
+                            <div class="tags" style="margin-bottom: 1rem;">
+                                <template x-for="tag in item.tags.split(',')" :key="tag">
+                                    <span class="tag tag-accent" x-text="tag.trim()"></span>
+                                </template>
+                            </div>
+                            <div class="editor-group">
+                                <label>Status</label>
+                                <select class="status-select" x-model="item.status" @change="save()">
+                                    <option value="to read">To Read</option>
+                                    <option value="reading">Reading</option>
+                                    <option value="annotated">Annotated</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                            </div>
+                            <div class="editor-group" x-data="{ localNotes: item.notes, savedMsg: false }">
+                                <label>Notes</label>
+                                <textarea x-model="localNotes"></textarea>
+                                <button class="btn btn-save" @click="item.notes = localNotes; save(); savedMsg = true; setTimeout(() => savedMsg = false, 2000)">Save Notes</button>
+                                <span x-show="savedMsg" style="font-size: 0.8rem; color: #10B981; margin-left: 0.5rem;" x-transition>Saved</span>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </section>
+
+        <!-- Weekly Plan -->
+        <section id="plan" class="section">
+            <div class="section-title-group">
+                <h2>Weekly Plan</h2>
+            </div>
+            <div class="timeline-container">
+                <template x-for="(item, index) in appData.plan" :key="item.id">
+                    <div class="timeline-item" :class="item.state">
+                        <div class="timeline-marker">
+                            <div class="marker-dot"></div>
+                            <div class="marker-line" x-show="index < appData.plan.length - 1"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div style="display:flex; justify-content: space-between; align-items: flex-start;">
+                                <div>
+                                    <h3 style="color: var(--accent); margin-bottom: 0.2rem;" x-text="`${item.week}: ${item.focus}`"></h3>
+                                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;" x-text="item.tasks"></p>
+                                </div>
+                                <select class="status-select" x-model="item.state" @change="save()">
+                                    <option value="pending">Pending</option>
+                                    <option value="active">Active</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                            </div>
+                            <div class="editor-group" x-data="{ localNotes: item.notes, savedMsg: false }">
+                                <textarea placeholder="Week notes..." x-model="localNotes"></textarea>
+                                <button class="btn btn-save" @click="item.notes = localNotes; save(); savedMsg = true; setTimeout(() => savedMsg = false, 2000)">Save Notes</button>
+                                <span x-show="savedMsg" style="font-size: 0.8rem; color: #10B981; margin-left: 0.5rem;" x-transition>Saved</span>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </section>
+
+        <!-- Prompt Log -->
+        <section id="prompts" class="section">
+            <div class="section-title-group">
+                <h2>Prompt Log</h2>
+                <button class="btn btn-primary" @click="openModal('prompt')">+ Add Entry</button>
+            </div>
+            <div class="items-container">
+                <template x-for="item in appData.prompts" :key="item.id">
+                    <div class="collapsible-card" x-data="{ open: false }">
+                        <div class="collapsible-header" @click="open = !open">
+                            <div class="title-area">
+                                <h3 style="font-family: monospace; font-size: 0.95rem; font-weight: normal; color: var(--accent);" x-text="`&quot;${item.prompt}&quot;`"></h3>
+                                <div class="meta" x-text="item.model"></div>
+                            </div>
+                            <div class="expand-icon" :class="{'open-icon': open}">▼</div>
+                        </div>
+                        <div class="collapsible-body" :class="{'open': open}">
+                            <div class="editor-group">
+                                <label>Output Summary</label>
+                                <p style="font-size: 0.9rem; margin-bottom: 1rem;" x-text="item.output"></p>
+                                <label>What I changed next</label>
+                                <p style="font-size: 0.9rem;" x-text="item.next"></p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </section>
+
+        <!-- Experiment Log -->
+        <section id="experiments" class="section">
+            <div class="section-title-group">
+                <h2>Experiment Log</h2>
+                <button class="btn btn-primary" @click="openModal('experiment')">+ Add Experiment</button>
+            </div>
+            <div class="items-container">
+                <template x-for="item in appData.experiments" :key="item.id">
+                    <div class="collapsible-card" x-data="{ open: false }">
+                        <div class="collapsible-header" @click="open = !open">
+                            <div class="title-area">
+                                <h3 x-text="item.title"></h3>
+                            </div>
+                            <div class="expand-icon" :class="{'open-icon': open}">▼</div>
+                        </div>
+                        <div class="collapsible-body" :class="{'open': open}">
+                            <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>Action:</strong> <span x-text="item.what"></span></p>
+                            <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>Outcome:</strong> <span x-text="item.outcome"></span></p>
+                            <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>Next Step:</strong> <span x-text="item.next"></span></p>
+                            
+                            <div class="editor-group" x-data="{ localNotes: item.notes, savedMsg: false }">
+                                <label>Notes</label>
+                                <textarea x-model="localNotes"></textarea>
+                                <button class="btn btn-save" @click="item.notes = localNotes; save(); savedMsg = true; setTimeout(() => savedMsg = false, 2000)">Save Notes</button>
+                                <span x-show="savedMsg" style="font-size: 0.8rem; color: #10B981; margin-left: 0.5rem;" x-transition>Saved</span>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </section>
+
+        <!-- Links -->
+        <section id="links" class="section">
+            <div class="section-title-group">
+                <h2>Links & Resources</h2>
+                <button class="btn btn-primary" @click="openModal('link')">+ Add Link</button>
+            </div>
+            <div class="grid-3">
+                <template x-for="item in appData.links" :key="item.id">
+                    <div class="card link-card">
+                        <div>
+                            <h3 x-text="item.title"></h3>
+                            <p style="font-size: 0.85rem;" x-text="item.desc"></p>
+                        </div>
+                        <a :href="item.url" target="_blank">View Resource →</a>
+                    </div>
+                </template>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals (Alpine controlled) -->
+    <div class="modal-overlay" :class="{'hidden': !modalActive}" @click.self="closeModal()">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 x-text="modalTitle"></h3>
+                <button class="btn-close" @click="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                
+                <!-- Prompt Modal Form -->
+                <div x-show="modalType === 'prompt'">
+                    <label>Prompt</label>
+                    <textarea x-model="newPrompt.prompt" rows="3"></textarea>
+                    <label>Model</label>
+                    <input type="text" x-model="newPrompt.model" />
+                    <label>Output Summary</label>
+                    <textarea x-model="newPrompt.output" rows="2"></textarea>
+                    <label>What changed next?</label>
+                    <input type="text" x-model="newPrompt.next" />
+                    <button class="btn btn-submit" style="width: 100%; margin-top: 1rem;" @click="submitPrompt()">Add Entry</button>
+                </div>
+
+                <!-- Experiment Modal Form -->
+                <div x-show="modalType === 'experiment'">
+                    <label>Title</label>
+                    <input type="text" x-model="newExperiment.title" placeholder="Experiment 3 — ..."/>
+                    <label>What I tried</label>
+                    <textarea x-model="newExperiment.what" rows="2"></textarea>
+                    <label>Outcome</label>
+                    <textarea x-model="newExperiment.outcome" rows="2"></textarea>
+                    <label>Next Step</label>
+                    <input type="text" x-model="newExperiment.next" />
+                    <label>Initial Notes</label>
+                    <textarea x-model="newExperiment.notes" rows="2"></textarea>
+                    <button class="btn btn-submit" style="width: 100%; margin-top: 1rem;" @click="submitExperiment()">Add Experiment</button>
+                </div>
+
+                <!-- Link Modal Form -->
+                <div x-show="modalType === 'link'">
+                    <label>Title</label>
+                    <input type="text" x-model="newLink.title" />
+                    <label>Description</label>
+                    <input type="text" x-model="newLink.desc" />
+                    <label>URL</label>
+                    <input type="url" x-model="newLink.url" />
+                    <button class="btn btn-submit" style="width: 100%; margin-top: 1rem;" @click="submitLink()">Add Link</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
