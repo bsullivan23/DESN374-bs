@@ -48,6 +48,12 @@ body {
     line-height: 1.6;
     display: flex;
     min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure transition elements respond smoothly */
+.card, .sidebar, .btn, .collapsible-card, .collapsible-header, .collapsible-body, input, textarea, select {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Sidebar */
@@ -256,6 +262,31 @@ p {
     background: var(--sage);
     color: var(--text-primary);
     border-color: var(--border-color);
+}
+
+/* Status Tags */
+.tag-status {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.70rem;
+    margin-left: 0.75rem;
+    vertical-align: middle;
+    display: inline-block;
+}
+.status-not-started { background: #f1f5f9; color: #475569; border-color: #cbd5e1; }
+.status-in-progress, .status-running { background: #fef08a; color: #854d0e; border-color: #fde047; }
+.status-completed, .status-done { background: #dcfce3; color: #166534; border-color: #86efac; }
+.status-planned { background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; }
+
+/* Control Bar */
+.controls-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+.controls-bar input, .controls-bar select {
+    margin-bottom: 0;
+    max-width: 250px;
 }
 
 /* Evolution Section */
@@ -578,4 +609,47 @@ select.status-select {
 }
 .link-card a:hover {
     border-bottom-color: var(--accent);
+}
+
+/* -----------------------------
+   DARK MODE OVERRIDES
+-------------------------------- */
+[data-theme="dark"] {
+    --bg-body: #1E2325; /* Dark blue-gray */
+    --bg-sidebar: #2A3033; /* Slightly lighter dark */
+    --bg-card: #2B3135; /* Dark card bg */
+    
+    --border-color: #5A4E40;
+    --border-light: rgba(210, 182, 149, 0.15);
+    
+    --text-heading: #FDE8D4; 
+    --text-primary: #E0E8EB; 
+    --text-secondary: #B0B5A1;
+    --text-muted: #D9A098; 
+    
+    --accent: #E06C55; 
+    --accent-hover: #F29580; 
+    --accent-light: #523821; 
+    
+    --highlight-bg: #40321F;
+    --highlight-border: #9C6500; 
+    
+    --sage: #454E41;
+    --rose: #5C4148;
+    
+    --shadow-sm: 0 4px 12px rgba(0,0,0,0.4);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+[data-theme="dark"] .status-not-started { background: #334155; color: #cbd5e1; border-color: #475569; }
+[data-theme="dark"] .status-in-progress, [data-theme="dark"] .status-running { background: #713f12; color: #fef08a; border-color: #854d0e; }
+[data-theme="dark"] .status-completed, [data-theme="dark"] .status-done { background: #14532d; color: #dcfce3; border-color: #166534; }
+[data-theme="dark"] .status-planned { background: #312e81; color: #e0e7ff; border-color: #3730a3; }
+
+/* Invert theme icon button nicely */
+.btn-theme-toggle {
+    transition: transform 0.2s ease;
+}
+.btn-theme-toggle:hover {
+    transform: scale(1.1);
 }
