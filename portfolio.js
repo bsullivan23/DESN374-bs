@@ -30,4 +30,36 @@ document.addEventListener('DOMContentLoaded', () => {
             heroContent.classList.add('active');
         }
     }, 100);
+
+    // Dynamic Navigation Color on Scroll
+    const siteNav = document.querySelector('.site-nav');
+    if (siteNav) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > window.innerHeight * 0.5) {
+                siteNav.classList.add('scrolled');
+            } else {
+                siteNav.classList.remove('scrolled');
+            }
+        });
+    }
+
+    // Mobile Hamburger Menu Toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileNavToggle && navLinks) {
+        mobileNavToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileNavToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = navLinks.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileNavToggle.classList.remove('active');
+            });
+        });
+    }
 });

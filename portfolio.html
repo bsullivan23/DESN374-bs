@@ -13,16 +13,35 @@
 </head>
 <body>
 
+    <!-- Navigation -->
+    <nav class="site-nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">BS</a>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">Context</a></li>
+                <li><a href="#questions">Inquiry</a></li>
+                <li><a href="#research">Deep Dive</a></li>
+                <li><a href="#experiments">Experimentation</a></li>
+                <li><a href="#archive">Documentation</a></li>
+                <li><a href="#reflection">Reflection</a></li>
+                <li><a href="#takeaways">Conclusion</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- 1. Hero Section -->
     <header class="hero" id="hero">
-        <div class="hero-bg">
-            <div class="hero-placeholder">[Insert vector landscape here]</div>
-        </div>
+        <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
             <h1 class="hero-title">Rethinking<br><em>Intelligence</em></h1>
             <p class="hero-subtitle">A reflection on cognition, AI, and the design process</p>
-            <a href="#about" class="btn">Explore the Work</a>
+            <a href="#archive" class="btn">Explore the Work</a>
         </div>
     </header>
 
@@ -60,17 +79,17 @@
                     <div class="research-card reveal-up">
                         <div class="icon-accent"></div>
                         <h4>Cognition vs. Computation</h4>
-                        <p>Studying the fundamental differences between human intuition and machine logic, exploring how algorithms process information without experiencing it.</p>
+                        <p>I started thinking about the difference between how humans understand things versus how AI processes information. AI is really good at recognizing patterns, but it doesn’t actually “experience” or interpret things the way we do. That made me question what it really means to understand something.</p>
                     </div>
                     <div class="research-card reveal-up delay-1">
                         <div class="icon-accent"></div>
                         <h4>The Illusion of Creativity</h4>
-                        <p>Analyzing whether AI models are generating novel ideas or simply synthesizing vast datasets in ways that mimic human creativity.</p>
+                        <p>This made me question whether AI is actually being creative, or if it’s just combining existing information in convincing ways. A lot of the outputs look original at first, but the more I worked with it, the more I realized how much of it comes from patterns and repetition.</p>
                     </div>
                     <div class="research-card reveal-up delay-2">
                         <div class="icon-accent"></div>
                         <h4>Ethics & Authorship</h4>
-                        <p>Navigating the complex landscape of ownership when generating outputs mathematically derived from existing human artwork.</p>
+                        <p>I also started thinking about who owns AI-generated work. The outputs are based on existing data, but they’re also shaped by my prompts and decisions. It made me question where authorship really comes from and how much of the final result is actually “mine.”</p>
                     </div>
                 </div>
             </div>
@@ -89,7 +108,7 @@
 
                 <div class="original-drawing-container mb-5 reveal-up" style="max-width: 650px; margin: 0 auto; text-align: center;">
                     <img src="https://app.milanote.com/media/p/images/1VSdnk1xxaeZa6/mnD/IMG_0625.jpeg?w=800" alt="Original Drawing" class="experiment-img" style="aspect-ratio: auto;">
-                    <p class="caption" style="font-size: 1rem; color: var(--text-muted); font-style: italic;">Original Sketch Output (Stark White Background)</p>
+                    <p class="caption" style="font-size: 1rem; color: var(--text-muted); font-style: italic;">Original Sketch Output (Purple Moth)</p>
                 </div>
 
                 <div class="experiment-grid">
@@ -107,23 +126,14 @@
                     </div>
                 </div>
 
-                <div class="original-drawing-container reveal-up" style="max-width: 650px; margin: 5rem auto 3rem; text-align: center;">
-                    <img src="https://app.milanote.com/media/p/images/1VSdrx1xxaeZak/Ksm/IMG_0632.jpeg" alt="Original Whale Shark Sketch" class="experiment-img" style="aspect-ratio: auto;">
-                    <p class="caption" style="font-size: 1rem; color: var(--text-muted); font-style: italic;">Original Sketch Output (Whale Shark)</p>
-                </div>
-
-                <div class="experiment-grid">
-                    <div class="experiment-card reveal-up delay-1">
-                        <img src="https://app.milanote.com/media/p/images/1VSdL71Ib2ECeU/lgT/IMG_0634.jpeg?w=800" alt="Guided Depth" class="experiment-img">
-                        <p class="caption">Final Image: Guided Depth</p>
+                <div class="experiment-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 900px; margin: 5rem auto 3rem; align-items: stretch;">
+                    <div class="experiment-card reveal-up" style="display: flex; flex-direction: column; text-align: center;">
+                        <img src="https://app.milanote.com/media/p/images/1VSdrx1xxaeZak/Ksm/IMG_0632.jpeg" alt="Original Whale Shark Sketch" class="experiment-img" style="flex-grow: 1; aspect-ratio: auto; object-fit: cover; width: 100%;">
+                        <p class="caption" style="font-size: 1rem; color: var(--text-muted); font-style: italic;">Original Sketch Output (Whale Shark)</p>
                     </div>
-                    <div class="experiment-card reveal-up delay-2">
-                        <img src="https://app.milanote.com/media/p/images/1VSdqJ1xxaeZaj/n33/IMG_0637.jpeg?w=800" alt="Immersive Realism" class="experiment-img">
-                        <p class="caption">Final Image: Immersive Realism</p>
-                    </div>
-                    <div class="experiment-card reveal-up">
-                        <img src="https://app.milanote.com/media/p/images/1VSdqI1xxaeZaf/swV/IMG_0633.jpeg?w=800" alt="Early Output" class="experiment-img">
-                        <p class="caption">Early AI Interpretation</p>
+                    <div class="experiment-card reveal-up delay-1" style="display: flex; flex-direction: column; text-align: center;">
+                        <img src="https://app.milanote.com/media/p/images/1VSdL71Ib2ECeU/lgT/IMG_0634.jpeg?w=800" alt="Guided Depth" class="experiment-img" style="flex-grow: 1; aspect-ratio: auto; object-fit: cover; width: 100%;">
+                        <p class="caption" style="font-size: 1rem; color: var(--text-muted); font-style: italic;">Final Image: Guided Depth</p>
                     </div>
                 </div>
 
@@ -138,23 +148,66 @@
             </div>
         </section>
 
-        <!-- 6. Process Map -->
-        <section id="process-map" class="section bg-light process-map-section reveal">
-            <div class="container text-center">
-                <span class="section-kicker">05 // Visualization</span>
-                <h2 class="section-title">Process Map</h2>
-                <div class="map-container reveal-up">
-                    <div class="placeholder-box wide-box">[Insert process map here]</div>
+        <!-- 5. Process Archive -->
+        <section id="archive" class="section bg-light archive-section reveal">
+            <div class="container">
+                <div class="archive-header">
+                    <span class="section-kicker">05 // Documentation</span>
+                    <h2 class="section-title">Process, Unfiltered</h2>
+                    <p class="archive-intro">A raw look behind the scenes documenting thoughts, prompt structures, and iterative research logs collected throughout the course.</p>
+                    
+                    <div style="margin: 3.5rem 0;">
+                        <a href="https://app.milanote.com/1VDdsw1y755yB3?p=gojt2x1ZhnK" target="_blank" class="btn">Explore Full Research</a>
+                        <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 1rem; font-style: italic;">All notes and research documented throughout the course</p>
+                    </div>
                 </div>
-                <div class="map-links reveal-up delay-1 mt-4">
-                    <a href="#" class="btn btn-outline">View Full Notes</a>
-                    <a href="#" class="btn btn-outline">Open Research Board</a>
-                    <a href="#" class="btn btn-outline">Explore Process</a>
+                
+                <div class="process-highlights-section" style="margin-top: 5rem;">
+                    <h3 style="font-size: 2.25rem; color: var(--color-navy); margin-bottom: 0.5rem; font-family: var(--font-heading); font-style: italic;">Process Highlights</h3>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 3rem;">Selected moments throughout the course that shaped my thinking, process, and direction.</p>
+
+                    <div class="process-highlights-grid">
+                        <div class="process-card reveal-up">
+                            <h4>Prompt to Pixel — Week 1</h4>
+                            <p>Early exploration of translating prompts into visual outcomes.</p>
+                            <a href="https://app.milanote.com/1VFwXh1Hr1tpdp?p=CgP60I0m4bl" target="_blank" class="view-board-link">View Board &rarr;</a>
+                        </div>
+                        <div class="process-card reveal-up delay-1">
+                            <h4>Field Research — Week 2</h4>
+                            <p>Initial research and observation shaping my understanding of AI.</p>
+                            <a href="https://app.milanote.com/1VFNxy1Hr99e3F?p=iARTbSDYYSlF" target="_blank" class="view-board-link">View Board &rarr;</a>
+                        </div>
+                        <div class="process-card reveal-up delay-2">
+                            <h4>Photoshop Generative Tools — Week 3</h4>
+                            <p>Experimenting with AI tools within my design workflow.</p>
+                            <a href="https://app.milanote.com/1VJ3AB1CBWZBdr?p=pol9UeNPNWY" target="_blank" class="view-board-link">View Board &rarr;</a>
+                        </div>
+                        <div class="process-card reveal-up">
+                            <h4>Turning Point — Week 8</h4>
+                            <p>A shift toward deeper thinking around cognition and intelligence.</p>
+                            <a href="https://app.milanote.com/1VQWCR1BAIa5ev?p=h6HEQ5PrVYF" target="_blank" class="view-board-link">View Board &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-notes-subsection reveal-up delay-2 mt-5" style="border-top: 1px solid rgba(11,31,59,0.1); padding-top: 4rem; margin-top: 5rem;">
+                    <h3 class="subsection-title" style="font-family: var(--font-heading); font-style: italic; font-weight: 400; font-size: 2.25rem; color: var(--color-navy); margin-bottom: 0.5rem;">Explore Full Research Notes</h3>
+                    <div class="notes-grid">
+                        <a href="https://drive.google.com/file/d/1zlxsU3usGns3MO64bjnBEi9_y6S-tgEd/view?usp=sharing" target="_blank" class="btn btn-notes">Week 2</a>
+                        <a href="https://drive.google.com/file/d/15ryTjiq2Bf8E3RP9w3NChuDUjqym3pha/view?usp=sharing" target="_blank" class="btn btn-notes">Week 3</a>
+                        <a href="https://drive.google.com/file/d/1gShSa1fG3i1p4YK6wmvjh3DhHcIel_y0/view?usp=sharing" target="_blank" class="btn btn-notes">Week 4</a>
+                        <a href="https://drive.google.com/file/d/1um_M1SlBcTBntUCkkQzglpvkZvlFpWK0/view?usp=sharing" target="_blank" class="btn btn-notes">Week 6</a>
+                        <a href="https://drive.google.com/file/d/1hAzlJY74yeezo4k_58eRCkz9aXEKCSuM/view?usp=sharing" target="_blank" class="btn btn-notes">Week 7</a>
+                        <a href="https://drive.google.com/file/d/1M0n7a0DOlfjX9DrW-h9SpeRUYmiu1iw9/view?usp=sharing" target="_blank" class="btn btn-notes">Week 8</a>
+                        <a href="https://drive.google.com/file/d/1VPDzo8wJFGe7xBla9JbpSWiRFS5nmSgO/view?usp=sharing" target="_blank" class="btn btn-notes">Week 9</a>
+                        <a href="https://drive.google.com/file/d/1DwRyeu7i79cYmVDBHOEiLjQRj3TBSNY5/view?usp=sharing" target="_blank" class="btn btn-notes">Week 10</a>
+                    </div>
+                    <p style="font-size: 1rem; color: var(--text-muted); margin-top: 1.5rem;">These documents contain my full handwritten notes and research throughout the course.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 7. Reflection (Exact Content) -->
+        <!-- 6. Reflection (Exact Content) -->
         <section id="reflection" class="section reflection-section reveal">
             <div class="container container-sm">
                 <span class="section-kicker text-mauve">06 // Shift in Focus</span>
@@ -168,60 +221,10 @@
             </div>
         </section>
 
-        <!-- 8. Process Archive -->
-        <section id="archive" class="section bg-light archive-section reveal">
-            <div class="container">
-                <div class="archive-header">
-                    <span class="section-kicker">07 // Documentation</span>
-                    <h2 class="section-title">Process, Unfiltered</h2>
-                    <p class="archive-intro">A raw look behind the scenes documenting thoughts, prompt structures, and iterative research logs collected throughout the course.</p>
-                </div>
-                
-                <div class="masonry-grid">
-                    <div class="masonry-item">
-                        <div class="masonry-img-placeholder tall">[Insert notes screenshot]</div>
-                        <div class="masonry-caption">
-                            <h4>Week 1 - Foundations & Mindset</h4>
-                        </div>
-                    </div>
-                    <div class="masonry-item">
-                        <div class="masonry-img-placeholder wide">[Insert notes screenshot]</div>
-                        <div class="masonry-caption">
-                            <h4>Week 2 - Prompt Exploration</h4>
-                        </div>
-                    </div>
-                    <div class="masonry-item">
-                        <div class="masonry-img-placeholder square">[Insert notes screenshot]</div>
-                        <div class="masonry-caption">
-                            <h4>Week 3 - Tools & Production</h4>
-                        </div>
-                    </div>
-                    <div class="masonry-item">
-                        <div class="masonry-img-placeholder tall">[Insert notes screenshot]</div>
-                        <div class="masonry-caption">
-                            <h4>Week 4 - Expanding Capabilities</h4>
-                        </div>
-                    </div>
-                    <div class="masonry-item">
-                        <div class="masonry-img-placeholder wide">[Insert notes screenshot]</div>
-                        <div class="masonry-caption">
-                            <h4>Weeks 5-7 - Iteration & Control</h4>
-                        </div>
-                    </div>
-                    <div class="masonry-item">
-                        <div class="masonry-img-placeholder square">[Insert notes screenshot]</div>
-                        <div class="masonry-caption">
-                            <h4>Weeks 8-10 - Systems & Structure</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 9. Final Takeaways -->
+        <!-- 7. Final Takeaways -->
         <section id="takeaways" class="section bg-navy text-white takeaways-section reveal">
-            <div class="container container-sm text-center">
-                <span class="section-kicker text-mauve">08 // Conclusion</span>
+            <div class="container container-sm">
+                <span class="section-kicker text-mauve">07 // Conclusion</span>
                 <h2 class="section-title takeaways-title">Final Takeaways</h2>
                 <p class="takeaway-text">
                     This exploration transformed my understanding of what AI is capable of, but more importantly, what it is not. By stepping away from the need for pure efficiency, I discovered the value of critical friction. Engaging with AI shouldn't just be about automation; it should be an active dialogue that challenges our own creative cognition.
