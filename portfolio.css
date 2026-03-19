@@ -211,12 +211,13 @@ p {
 }
 
 .btn-notes {
-    background-color: transparent;
-    border: 1px solid rgba(11, 31, 59, 0.15);
-    color: var(--color-navy);
+    background-color: #ffffff;
+    border: 1px solid var(--color-mauve);
+    color: var(--color-mauve);
     padding: 0.85rem 1.5rem;
     font-size: 0.9rem;
     text-align: center;
+    border-radius: 8px;
 }
 
 .btn-notes:hover {
