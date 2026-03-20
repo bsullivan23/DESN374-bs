@@ -176,6 +176,7 @@ p {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     border: 1px solid var(--color-mauve);
+    border-radius: 8px;
     background-color: var(--color-mauve);
     transition: var(--transition-smooth);
     cursor: pointer;
@@ -201,6 +202,7 @@ p {
 .btn-outline {
     background-color: transparent;
     border: 1px solid var(--color-navy);
+    border-radius: 8px;
     color: var(--color-navy);
 }
 
@@ -373,14 +375,7 @@ p {
     border-top: 1px solid rgba(11, 31, 59, 0.1);
 }
 
-.icon-accent {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 2px solid var(--color-mauve);
-    margin-bottom: 1.5rem;
-}
+
 
 /* =========================================================================
    EXPERIMENTS
@@ -612,7 +607,8 @@ p {
 .nav-logo {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.75rem;
+    font-size: 1.25rem;
+    white-space: nowrap;
     color: var(--text-inverse);
     text-decoration: none;
     letter-spacing: 0.05em;
@@ -629,7 +625,7 @@ p {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 1.25rem;
     margin: 0;
     padding: 0;
     overflow-x: auto;
@@ -650,7 +646,7 @@ p {
     color: var(--text-inverse);
     text-decoration: none;
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;

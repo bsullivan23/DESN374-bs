@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="portfolio.css?v=4">
     <script src="portfolio.js" defer></script>
 </head>
 <body>
@@ -24,7 +24,7 @@
     <!-- Navigation -->
     <nav class="site-nav">
         <div class="nav-container">
-            <a href="#hero" class="nav-logo">BS</a>
+            <a href="#hero" class="nav-logo">Bre Sullivan</a>
             <button class="mobile-nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -85,17 +85,14 @@
                 <h2 class="section-title">Research & Thinking</h2>
                 <div class="research-grid">
                     <div class="research-card reveal-up">
-                        <div class="icon-accent"></div>
                         <h4>Cognition vs. Computation</h4>
                         <p>I started thinking about the difference between how humans understand things versus how AI processes information. AI is really good at recognizing patterns, but it doesn’t actually “experience” or interpret things the way we do. That made me question what it really means to understand something.</p>
                     </div>
                     <div class="research-card reveal-up delay-1">
-                        <div class="icon-accent"></div>
                         <h4>The Illusion of Creativity</h4>
                         <p>This made me question whether AI is actually being creative, or if it’s just combining existing information in convincing ways. A lot of the outputs look original at first, but the more I worked with it, the more I realized how much of it comes from patterns and repetition.</p>
                     </div>
                     <div class="research-card reveal-up delay-2">
-                        <div class="icon-accent"></div>
                         <h4>Ethics & Authorship</h4>
                         <p>I also started thinking about who owns AI-generated work. The outputs are based on existing data, but they’re also shaped by my prompts and decisions. It made me question where authorship really comes from and how much of the final result is actually “mine.”</p>
                     </div>
@@ -134,10 +131,21 @@
                     </div>
                 </div>
 
-                <div class="experiment-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 650px; margin: 5rem auto 3rem; align-items: stretch;">
+                <div class="experiment-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 650px; margin: 5rem auto 2rem; align-items: stretch;">
+                    <div class="experiment-card reveal-up" style="display: flex; flex-direction: column; text-align: center;">
+                        <img src="whale-shark-input.jpg" alt="First Input Whale Shark Sketch" class="experiment-img" style="flex-grow: 1; aspect-ratio: auto; object-fit: cover; width: 100%;">
+                        <p class="caption" style="font-size: 1rem; color: var(--text-muted); font-style: italic;">First Input (Whale Shark)</p>
+                    </div>
+                    <div class="experiment-card reveal-up delay-1" style="display: flex; flex-direction: column; text-align: center;">
+                        <img src="whale-shark-output.jpg" alt="First Output Whale Shark" class="experiment-img" style="flex-grow: 1; aspect-ratio: auto; object-fit: cover; width: 100%;">
+                        <p class="caption" style="font-size: 1rem; color: var(--text-muted); font-style: italic;">First Output (Whale Shark)</p>
+                    </div>
+                </div>
+
+                <div class="experiment-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 650px; margin: 0 auto 3rem; align-items: stretch;">
                     <div class="experiment-card reveal-up" style="display: flex; flex-direction: column; text-align: center;">
                         <img src="https://app.milanote.com/media/p/images/1VSdrx1xxaeZak/Ksm/IMG_0632.jpeg" alt="Original Whale Shark Sketch" class="experiment-img" style="flex-grow: 1; aspect-ratio: auto; object-fit: cover; width: 100%;">
-                        <p class="caption" style="font-size: 1rem; color: var(--text-muted); font-style: italic;">Original Sketch (Whale Shark)</p>
+                        <p class="caption" style="font-size: 1rem; color: var(--text-muted); font-style: italic;">Second Sketch (Whale Shark)</p>
                     </div>
                     <div class="experiment-card reveal-up delay-1" style="display: flex; flex-direction: column; text-align: center;">
                         <img src="https://app.milanote.com/media/p/images/1VSdL71Ib2ECeU/lgT/IMG_0634.jpeg?w=800" alt="Guided Depth" class="experiment-img" style="flex-grow: 1; aspect-ratio: auto; object-fit: cover; width: 100%;">
